@@ -448,34 +448,3 @@ class PersonalizedServices:
             tips.append("Inspect soles for adequate tread")
         
         return tips
-
-
-if __name__ == "__main__":
-    # Example usage
-    services = PersonalizedServices()
-    services.load_data()
-    
-    # Get care notifications for user 1
-    notifications = services.get_care_notifications(user_id=1)
-    print("Care Notifications for User 1:")
-    for notification in notifications:
-        print(f"- {notification['type']}: {notification['message']}")
-    
-    # Analyze wear patterns
-    analysis = services.analyze_wear_patterns(user_id=1)
-    print(f"\nWear Pattern Analysis for User 1:")
-    print(f"Total shoes owned: {analysis['total_shoes_owned']}")
-    print(f"Care frequency: {analysis['care_frequency']}")
-    print("Most worn types:", analysis['most_worn_types'])
-    
-    # Get replacement suggestions
-    replacements = services.get_replacement_suggestions(user_id=1)
-    print(f"\nReplacement Suggestions:")
-    for suggestion in replacements:
-        print(f"- Replace {suggestion['current_shoe']['brand']} {suggestion['current_shoe']['type']} (Wear: {suggestion['current_shoe']['wear_level']*100:.0f}%)")
-    
-    # Get seasonal recommendations
-    seasonal_care = services.get_seasonal_care_recommendations(user_id=1, season='winter')
-    print(f"\nWinter Care Recommendations:")
-    for rec in seasonal_care[:2]:  # Show first 2
-        print(f"- {rec['shoe_brand']} {rec['shoe_type']}: {rec['message']}")

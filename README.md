@@ -40,8 +40,8 @@ This system implements a hybrid recommendation approach combining collaborative 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/shoe-recommendation-system.git
-cd shoe-recommendation-system
+git clone https://github.com/Anidipta/Shoe-Recommendation.git
+cd Shoe-Recommendation
 ```
 
 2. Install dependencies:
@@ -52,6 +52,11 @@ pip install -r requirements.txt
 3. Set up the database (optional):
 ```bash
 psql -U your_username -d your_database -f schema.sql
+```
+
+4. Run Streamlit Web App:
+```bash
+streamlit run app.py
 ```
 
 ## Usage
@@ -110,7 +115,6 @@ Run the test suite:
 ```bash
 python test.py
 ```
-
 
 ## License
 

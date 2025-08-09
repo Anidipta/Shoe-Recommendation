@@ -490,28 +490,3 @@ class ShoeRecommendationEngine:
             'f1_score': f1_score,
             'num_users_evaluated': len(set(test_interactions['user_id']))
         }
-
-
-if __name__ == "__main__":
-    # Example usage
-    engine = ShoeRecommendationEngine()
-    engine.load_data()
-    
-    # Get recommendations for user 1
-    recommendations = engine.get_recommendations(user_id=1, num_recommendations=5)
-    print("Recommendations for User 1:")
-    for i, rec in enumerate(recommendations, 1):
-        print(f"{i}. {rec['brand']} {rec['model']} - {rec['type']} (Score: {rec['score']:.3f})")
-    
-    # Get similar shoes
-    similar_shoes = engine.get_similar_shoes(shoe_id=1, num_similar=3)
-    print(f"\nShoes similar to shoe ID 1:")
-    for shoe in similar_shoes:
-        print(f"- {shoe['brand']} {shoe['model']} (Similarity: {shoe['similarity_score']:.3f})")
-    
-    # Get seasonal recommendations
-    seasonal_recs = engine.get_seasonal_recommendations(user_id=1, season='winter', num_recommendations=3)
-    print(f"\nWinter recommendations for User 1:")
-    for rec in seasonal_recs:
-        print(f"- {rec['brand']} {rec['model']} - {rec['type']}")
-        
