@@ -23,44 +23,163 @@ st.set_page_config(
 # Custom CSS for better styling
 st.markdown("""
 <style>
+    /* Main Layout & Typography */
+    body {
+        background: linear-gradient(135deg, #0a0c10 0%, #0d1117 100%);
+        color: #c9d1d9;
+    }
+
     .main-header {
-        font-size: 2.5rem;
-        font-weight: bold;
+        font-size: 3rem;
+        font-weight: 800;
         text-align: center;
-        color: #2E86AB;
-        margin-bottom: 2rem;
+        background: linear-gradient(45deg, #58a6ff, #1f6feb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 2rem 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        letter-spacing: -0.5px;
     }
-    .metric-container {
-        background-color: #f0f2f6;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
+
+    /* Enhanced Tab Styling */
+    .stTabs {
+        background: linear-gradient(180deg, #161b22, #0d1117);
+        padding: 1.5rem 1rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(88, 166, 255, 0.1);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
+
+    .stTabs [data-baseweb="tab-list"] {
+        display: flex;
+        width: 100%;
+        background: linear-gradient(180deg, #21262d, #1a1f24);
+        padding: 0.75rem;
+        border-radius: 1rem;
+        gap: 8px;
+        border: 1px solid rgba(88, 166, 255, 0.2);
+    }
+
+    .stTabs [data-baseweb="tab"] {
+        font-size: 2.5rem;
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+        background: linear-gradient(145deg, #1a1f24, #21262d);
+        border: 1px solid rgba(88, 166, 255, 0.1);
+        border-radius: 1rem;
+        color: #8b949e;
+        transition: all 0.3s ease;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .stTabs [data-baseweb="tab"]:hover {
+        background: linear-gradient(145deg, #21262d, #2d333b);
+        border-color: rgba(88, 166, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(45deg, #1f6feb, #58a6ff) !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(31, 111, 235, 0.3);
+    }
+
+    /* Recommendation Cards with Glow Effects */
     .recommendation-card {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid #e0e0e0;
-        margin: 0.5rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background: linear-gradient(145deg, #161b22, #1a1f24);
+        padding: 2rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(88, 166, 255, 0.1);
+        margin: 1.5rem 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        transition: all 0.4s ease;
     }
+
+    .recommendation-card:hover {
+        transform: translateY(-5px);
+        border-color: #58a6ff;
+        box-shadow: 0 12px 28px rgba(88, 166, 255, 0.2);
+    }
+
+    /* Enhanced Notification Styles */
     .notification-high {
-        background-color: #ffebee;
-        border-left: 5px solid #f44336;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        background: linear-gradient(135deg, #3d1f1f 0%, #161b22 100%);
+        border-left: 5px solid #f85149;
+        box-shadow: 0 4px 12px rgba(248, 81, 73, 0.2);
+        padding: 1.5rem;
+        border-radius: 0 1rem 1rem 0;
     }
+
     .notification-medium {
-        background-color: #fff3e0;
-        border-left: 5px solid #ff9800;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        background: linear-gradient(135deg, #3d331f 0%, #161b22 100%);
+        border-left: 5px solid #d29922;
+        box-shadow: 0 4px 12px rgba(210, 153, 34, 0.2);
+        padding: 1.5rem;
+        border-radius: 0 1rem 1rem 0;
     }
+
     .notification-low {
-        background-color: #e8f5e8;
-        border-left: 5px solid #4caf50;
-        padding: 1rem;
-        margin: 0.5rem 0;
+        background: linear-gradient(135deg, #1f3d25 0%, #161b22 100%);
+        border-left: 5px solid #2ea043;
+        box-shadow: 0 4px 12px rgba(46, 160, 67, 0.2);
+        padding: 1.5rem;
+        border-radius: 0 1rem 1rem 0;
+    }
+
+    /* Enhanced Buttons */
+    .stButton > button {
+        background: linear-gradient(45deg, #1f6feb, #58a6ff);
+        color: white;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 1rem;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(31, 111, 235, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(31, 111, 235, 0.4);
+    }
+
+    /* Metric Containers with Glass Effect */
+    .metric-container {
+        background: linear-gradient(145deg, rgba(22, 27, 34, 0.9), rgba(33, 38, 45, 0.9));
+        backdrop-filter: blur(12px);
+        padding: 2rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(88, 166, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: linear-gradient(180deg, #0d1117, #161b22);
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #1f6feb, #58a6ff);
+        border-radius: 6px;
+        border: 3px solid #0d1117;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #58a6ff, #1f6feb);
+    }
+
+    /* Animation Keyframes */
+    @keyframes glow {
+        0% { box-shadow: 0 0 5px rgba(88, 166, 255, 0.2); }
+        100% { box-shadow: 0 0 20px rgba(88, 166, 255, 0.4); }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -138,7 +257,7 @@ def main():
         "🏠 Dashboard", 
         "🎯 Recommendations", 
         "🔔 Notifications", 
-        "📊 Analytics", 
+        "💾 Database",  # Changed from Analytics to Database
         "⚙️ System Info"
     ])
     
@@ -324,62 +443,139 @@ def main():
                 st.error(f"Error getting seasonal care recommendations: {e}")
     
     with tab4:
-        st.header("📊 Analytics & Insights")
+        st.markdown('<h2 style="text-align: center; color: #58a6ff;">💾 Database Schema</h2>', unsafe_allow_html=True)
         
-        # Wear pattern analysis
-        st.subheader("👁️ Wear Pattern Analysis")
-        try:
-            analysis = services.analyze_wear_patterns(selected_user)
-            
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                st.metric("Total Shoes Owned", analysis['total_shoes_owned'])
-            with col2:
-                st.metric("Care Frequency", analysis['care_frequency'].replace('_', ' ').title())
-            with col3:
-                if analysis['most_worn_types']:
-                    most_worn = analysis['most_worn_types'][0]['type']
-                    st.metric("Most Worn Type", most_worn.title())
-                else:
-                    st.metric("Most Worn Type", "N/A")
-            
-            # Most worn types chart
-            if analysis['most_worn_types']:
-                st.subheader("📊 Shoe Type Distribution")
-                
-                types_df = pd.DataFrame(analysis['most_worn_types'])
-                
-                fig = px.pie(
-                    types_df, 
-                    values='count', 
-                    names='type',
-                    title="Distribution of Shoe Types"
-                )
-                st.plotly_chart(fig, use_container_width=True)
-            
-            # Recommendations from analysis
-            if analysis['recommendations']:
-                st.subheader("💡 Personalized Insights")
-                for rec in analysis['recommendations']:
-                    st.info(f"💡 {rec}")
-                    
-        except Exception as e:
-            st.error(f"Error analyzing wear patterns: {e}")
+        # Add enhanced CSS for SQL display
+        st.markdown("""
+        <style>
+            .sql-container {
+                background: linear-gradient(145deg, #161b22, #1a1f24);
+                border-radius: 1rem;
+                padding: 1.5rem;
+                margin: 1rem 0;
+                border: 1px solid rgba(88, 166, 255, 0.1);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+            .sql-title {
+                color: #58a6ff;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .sql-code {
+                background: #0d1117;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                font-family: 'Consolas', monospace;
+                border: 1px solid #30363d;
+                color: #e6edf3;
+            }
+            .keyword { color: #ff7b72; }
+            .type { color: #79c0ff; }
+            .constraint { color: #d2a8ff; }
+            .symbol { color: #79c0ff; }
+            .erd-container {
+                background: linear-gradient(145deg, #161b22, #1a1f24);
+                border-radius: 1rem;
+                padding: 2rem;
+                margin: 2rem 0;
+                border: 1px solid rgba(88, 166, 255, 0.1);
+            }
+            .relationship-arrow {
+                color: #58a6ff;
+                font-size: 1.2rem;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+
+
+        # Display SQL schemas with syntax highlighting
+        col1, col2 = st.columns(2)
         
-        st.divider()
-        
-        # System performance metrics (mock data for demo)
-        st.subheader("⚡ System Performance")
-        
-        col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric("Avg Response Time", "0.23s", "↓ 15%")
+            # Users table
+            st.markdown("""
+            <div class="sql-container">
+                <div class="sql-title">👤 Users Table</div>
+                <div class="sql-code">
+<span class="keyword">CREATE TABLE</span> users (
+<br>    user_id         <span class="type">INTEGER</span> <span class="constraint">PRIMARY KEY</span>,
+<br>    name           <span class="type">VARCHAR(100)</span>,
+<br>    shoe_size      <span class="type">FLOAT</span>,
+<br>    activity_level <span class="type">VARCHAR(50)</span>,
+<br>    preferences    <span class="type">JSONB</span>,
+<br>    created_at     <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> CURRENT_TIMESTAMP
+);</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # Recommendations table
+            st.markdown("""
+            <div class="sql-container">
+                <div class="sql-title">🎯 Recommendations Table</div>
+                <div class="sql-code">
+<span class="keyword">CREATE TABLE</span> recommendations (
+<br>    recommendation_id <span class="type">INTEGER</span> <span class="constraint">PRIMARY KEY</span>,
+<br>    user_id          <span class="type">INTEGER</span> <span class="constraint">REFERENCES</span> users(user_id),
+<br>    shoe_id          <span class="type">INTEGER</span> <span class="constraint">REFERENCES</span> shoes(shoe_id),
+<br>    score            <span class="type">FLOAT</span>,
+<br>    algorithm        <span class="type">VARCHAR(50)</span>,
+<br>    created_at       <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> CURRENT_TIMESTAMP,
+    <span class="constraint">UNIQUE</span>(user_id, shoe_id)
+);</div>
+            </div>
+            """, unsafe_allow_html=True)
+
         with col2:
-            st.metric("Recommendation Accuracy", "87.3%", "↑ 2.1%")
-        with col3:
-            st.metric("User Engagement", "76.8%", "↑ 5.2%")
-        with col4:
-            st.metric("Click-through Rate", "12.4%", "↑ 3.1%")
+            # Shoes table
+            st.markdown("""
+            <div class="sql-container">
+                <div class="sql-title">👟 Shoes Table</div>
+                <div class="sql-code">
+<span class="keyword">CREATE TABLE</span> shoes (
+<br>    shoe_id     <span class="type">INTEGER</span> <span class="constraint">PRIMARY KEY</span>,
+<br>    brand      <span class="type">VARCHAR(100)</span>,
+<br>    model      <span class="type">VARCHAR(100)</span>,
+<br>    type       <span class="type">VARCHAR(50)</span>,
+<br>    material   <span class="type">VARCHAR(50)</span>,
+<br>    color      <span class="type">VARCHAR(50)</span>,
+<br>    price      <span class="type">DECIMAL(10,2)</span>,
+<br>    sizes      <span class="type">FLOAT[]</span>,
+<br>    stock      <span class="type">INTEGER</span>,
+<br>    created_at <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> CURRENT_TIMESTAMP
+);</div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            # User Interactions table
+            st.markdown("""
+            <div class="sql-container">
+                <div class="sql-title">🤝 User Interactions Table</div>
+                <div class="sql-code">
+<span class="keyword">CREATE TABLE</span> user_interactions (
+<br>    interaction_id <span class="type">INTEGER</span> <span class="constraint">PRIMARY KEY</span>,
+<br>    user_id       <span class="type">INTEGER</span> <span class="constraint">REFERENCES</span> users(user_id),
+<br>    shoe_id      <span class="type">INTEGER</span> <span class="constraint">REFERENCES</span> shoes(shoe_id),
+<br>    action_type   <span class="type">VARCHAR(50)</span>,
+<br>    rating       <span class="type">INTEGER</span>,
+<br>    feedback     <span class="type">TEXT</span>,
+<br>    created_at   <span class="type">TIMESTAMP</span> <span class="keyword">DEFAULT</span> CURRENT_TIMESTAMP
+);</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+        # Display key relationships
+        st.markdown("""
+        <div style="text-align: center; margin-top: 2rem; background: #161b22; padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(88, 166, 255, 0.1);">
+            <h3 style="color: #58a6ff; margin-bottom: 1rem;">Key Relationships</h3>
+            <p style="color: #8b949e; margin-bottom: 0.5rem;">• Users → Recommendations → Shoes (Many-to-Many)</p>
+            <p style="color: #8b949e; margin-bottom: 0.5rem;">• Users → Interactions → Shoes (Many-to-Many)</p>
+            <p style="color: #8b949e;">• All tables include timestamps for temporal analysis</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     with tab5:
         st.header("⚙️ System Information")
@@ -444,15 +640,6 @@ def main():
                 st.dataframe(services.care_history_df.head(10))
             else:
                 st.info("Data not available")
-
-# Footer
-st.markdown("---")
-st.markdown(
-    "<div style='text-align: center; color: gray;'>"
-    "👟 Shoe Recommendation System | Built with Streamlit"
-    "</div>", 
-    unsafe_allow_html=True
-)
 
 if __name__ == "__main__":
     main()
