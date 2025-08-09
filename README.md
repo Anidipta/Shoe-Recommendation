@@ -56,29 +56,6 @@ psql -U your_username -d your_database -f schema.sql
 
 ## Usage
 
-### Basic Recommendation Example
-
-```python
-from recommendation_system.recommendation_engine import ShoeRecommendationEngine
-from recommendation_system.personalized_services import PersonalizedServices
-
-# Initialize the recommendation engine
-engine = ShoeRecommendationEngine()
-engine.load_data()
-
-# Get recommendations for a user
-recommendations = engine.get_recommendations(user_id=1, num_recommendations=5)
-print("Recommended shoes:", recommendations)
-
-# Initialize personalized services
-services = PersonalizedServices()
-services.load_data()
-
-# Get care notifications
-notifications = services.get_care_notifications(user_id=1)
-print("Care notifications:", notifications)
-```
-
 ### Data Format
 
 The system expects the following data formats:
@@ -131,16 +108,9 @@ The PostgreSQL schema includes:
 
 Run the test suite:
 ```bash
-python -m pytest tests/
+python test.py
 ```
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
 
 ## License
 

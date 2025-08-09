@@ -1,13 +1,18 @@
-from recommendation_system import ShoeRecommendationEngine, PersonalizedServices
+from recommendation_system.recommendation_engine import ShoeRecommendationEngine
+from recommendation_system.personalized_services import PersonalizedServices
 
-# Get recommendations
+# Initialize the recommendation engine
 engine = ShoeRecommendationEngine()
 engine.load_data()
-recs = engine.get_recommendations(user_id=1, num_recommendations=5)
 
-# Get personalized services
+# Get recommendations for a user
+recommendations = engine.get_recommendations(user_id=1, num_recommendations=5)
+print("Recommended shoes:", recommendations)
+
+# Initialize personalized services
 services = PersonalizedServices()
 services.load_data()
+
+# Get care notifications
 notifications = services.get_care_notifications(user_id=1)
-print("Recommendations:", recs)
-print("Care Notifications:", notifications)
+print("Care notifications:", notifications)
