@@ -1,0 +1,21 @@
+user_id,age,gender,location,shoe_size_preference,typical_usage
+1,28,F,NYC,8.5,casual_work
+2,34,M,LA,10.0,athletic_casual
+3,22,F,Chicago,7.5,student_casual
+4,45,M,Houston,11.0,business_casual
+5,31,F,Phoenix,9.0,outdoor_active
+6,26,M,Seattle,9.5,tech_casual
+7,38,F,Miami,8.0,fashion_forward
+8,29,M,Denver,10.5,outdoor_sports
+9,33,F,Boston,7.0,professional
+10,41,M,Atlanta,12.0,business_formal
+11,24,F,Portland,8.5,eco_conscious
+12,36,M,Dallas,11.5,construction_work
+13,30,F,San Francisco,9.5,tech_professional
+14,27,M,Philadelphia,10.0,creative_casual
+15,35,F,Detroit,8.0,healthcare_worker
+16,32,M,Minneapolis,9.0,finance_professional
+17,25,F,Tampa,7.5,retail_worker
+18,39,M,Kansas City,11.0,sales_professional
+19,28,F,Las Vegas,8.5,hospitality_worker
+20,42,M,Nashville,10.5,music_industry
